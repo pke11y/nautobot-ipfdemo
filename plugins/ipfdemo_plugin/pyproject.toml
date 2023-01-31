@@ -1,0 +1,51 @@
+[tool.poetry]
+name = "nautobot_ipfdemo_plugin"
+version = "0.1.0"
+description = ""
+authors = ["Network to Code <info@networktocode.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+# NOTE: There is a bug in Markdown v3.3.5 that crashes Poetry
+Markdown = "^3.3.6"
+
+[tool.poetry.dev-dependencies]
+bandit = "*"
+black = "*"
+invoke = "*"
+pydocstyle = "*"
+pylint = "*"
+pylint-django = "*"
+pytest = "*"
+requests_mock = "*"
+yamllint = "*"
+
+[tool.poetry.plugins."nautobot.workers"]
+"ipfabric" = "nautobot_ipfdemo_plugin.worker:ipfabric"
+
+[tool.black]
+line-length = 120
+target-version = ['py36']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | settings.py     # This is where you define files that should not be stylized by black
+                     # the root of the project
+)
+'''
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

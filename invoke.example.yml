@@ -1,0 +1,11 @@
+---
+nautobot_ipfdemo:
+  project_name: "nautobot-ipfdemo"
+  local: false
+  use_django_extensions: true
+  python_ver: "3.7"
+  compose_dir: "/full/path/to/nautobot-ipfdemo/environments"
+  compose_files:
+    - "docker-compose.requirements.yml"
+    - "docker-compose.base.yml"
+    - "docker-compose.dev.yml"

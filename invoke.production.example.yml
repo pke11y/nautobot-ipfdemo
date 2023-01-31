@@ -1,0 +1,6 @@
+---
+nautobot_ipfdemo:
+  compose_files:
+    - "docker-compose.requirements.yml"
+    - "docker-compose.base.yml"
+    - "docker-compose.prod.yml"

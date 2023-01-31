@@ -1,0 +1,23 @@
+---
+version: "3.8"
+services:
+  nautobot:
+    build:
+      target: "nautobot"
+    image: "ipfdemo/nautobot-ipfdemo:local"
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    env_file:
+      - "./production.env"
+      - "./creds.env"
+  # rq-worker:
+  #   image: "ipfdemo/nautobot-ipfdemo:local"
+  #   env_file:
+  #     - "./production.env"
+  #     - "./creds.env"
+  worker:
+    image: "ipfdemo/nautobot-ipfdemo:local"
+    env_file:
+      - "./production.env"
+      - "./creds.env"
