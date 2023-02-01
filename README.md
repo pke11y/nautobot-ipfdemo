@@ -3,11 +3,23 @@
 
 # How to use this repo
 
-This repo is designed to provide a custom build of Nautobot to include a set of plugins which can then be used in a development environment or deployed in production.  Included in this repo is a skeleton Nautobot plugin which is designed only to provide a quick example of how a plugin could be developed.  Plugins should ultimately be built as packages, published to a pypi style repository and added to the poetry `pyproject.toml` in this repo.  The plugin code should be hosted in their own repositories with their own CI pipelines and not included here.
+This repo is designed to provide a custom build of Nautobot to include a set of plugins which can then be used in a development environment.  Included in this repo is a skeleton Nautobot plugin which is designed only to provide a quick example of how a plugin could be developed.  Plugins should ultimately be built as packages, published to a pypi style repository and added to the poetry `pyproject.toml` in this repo.  The plugin code should be hosted in their own repositories with their own CI pipelines and not included here.
 
 ## Install Docker
 
 Before beginning, install Docker and verify its operation by running `docker run hello-world`. If you encounter any issues connecting to the Docker service, check that your local user account is permitted to run Docker. **Note:** `docker-compose` v1.20.0 or later is required.
+
+## Configure IP Fabric Instance
+Set your IP Fabric credentials in `creds.env` as per Step 1. in [Local Development Environment instructions](#development-environment-setup).
+```shell
+IPFABRIC_HOST=https://myipfabric/
+IPFABRIC_API_TOKEN=0123456789abcdef0123456789abcdef01234567
+IPFABRIC_VERIFY=False
+```
+
+## Setup Chat Application
+Add a slash command to your chat platform called `/ipfabric`. 
+See the [nautobot-chatops installation guide](https://github.com/nautobot/nautobot-plugin-chatops/blob/develop/docs/chat_setup/chat_setup.md) for instructions on adding a slash command to your chat platform.
 
 ## Build and start Nautobot
 
@@ -15,17 +27,12 @@ You can build, deploy and populate Nautobot with the following steps
 1. `invoke build`
 2. `invoke start` or `invoke debug`
 
-Nautobot will be available on port 80 locally http://localhost
+Nautobot will be available on port 80 locally http://localhost:8080
 
 ## Cleanup Everything and start from scratch
 1. `invoke destroy`
 2. `invoke build`
-3. `invoke db-import`
-4. `invoke start`
-
-## Export current database
-While the database is already running
-* `invoke db-export`
+3. `invoke start`
 
 ### Docker Compose Files
 
@@ -42,7 +49,7 @@ Several docker compose files are provided as [overrides](https://docs.docker.com
 
 The development environment can be used in 2 ways, first with inside a docker container as detailed above, second is in a local poetry environment for advanced development.
 
-### Local Poetry Development Environment
+### Development Environment Setup
 
 1.  Copy `environments/.creds.example.env` to `environments/creds.env` (This file will be ignored by git and docker)
 2.  Define `NAUTOBOT_SECRET_KEY` in `environments/creds.env` if you are going to import the production DB you need to use the same secret key.
