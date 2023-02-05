@@ -1441,12 +1441,12 @@ social-auth-app-django = ">=5.0.0,<5.1.0"
 svgwrite = ">=1.4.2,<1.5.0"
 
 [package.extras]
-all = ["django-auth-ldap (>=4.1.0,<4.2.0)", "django-storages (>=1.12.3,<1.13.0)", "mysqlclient (>=2.1.0,<2.2.0)", "napalm (>=3.4.1,<3.5.0)", "social-auth-core[saml,openidconnect] (>=4.3.0,<4.4.0)"]
+all = ["django-auth-ldap (>=4.1.0,<4.2.0)", "django-storages (>=1.12.3,<1.13.0)", "mysqlclient (>=2.1.0,<2.2.0)", "napalm (>=3.4.1,<3.5.0)", "social-auth-core[openidconnect,saml] (>=4.3.0,<4.4.0)"]
 ldap = ["django-auth-ldap (>=4.1.0,<4.2.0)"]
 remote-storage = ["django-storages (>=1.12.3,<1.13.0)"]
 mysql = ["mysqlclient (>=2.1.0,<2.2.0)"]
 napalm = ["napalm (>=3.4.1,<3.5.0)"]
-sso = ["social-auth-core[saml,openidconnect] (>=4.3.0,<4.4.0)"]
+sso = ["social-auth-core[openidconnect,saml] (>=4.3.0,<4.4.0)"]
 
 [[package]]
 name = "nautobot-capacity-metrics"
@@ -1481,24 +1481,17 @@ webexteamssdk = ">=1.3,<2.0"
 
 [[package]]
 name = "nautobot-chatops-ipfabric"
-version = "3.0.0"
+version = "3.0.1"
 description = "Nautobot Plugin Chatops IPFabric"
 category = "main"
 optional = false
-python-versions = "^3.7.1"
-develop = false
+python-versions = ">=3.7.1,<4.0.0"
 
 [package.dependencies]
-ipfabric = "~6.0.9"
-ipfabric-diagrams = "~6.0.2"
-nautobot-chatops = "^1.1.0"
-netutils = "^1.0.0"
-
-[package.source]
-type = "git"
-url = "https://github.com/nautobot/nautobot-plugin-chatops-ipfabric.git"
-reference = "api-client"
-resolved_reference = "c67d87487b93053d503da0fb40e2e9d095dbeb0e"
+ipfabric = ">=6.0.9,<6.1.0"
+ipfabric-diagrams = ">=6.0.2,<6.1.0"
+nautobot-chatops = ">=1.1.0,<2.0.0"
+netutils = ">=1.0.0,<2.0.0"
 
 [[package]]
 name = "nautobot-ipfdemo-plugin"
@@ -2455,7 +2448,7 @@ testing = ["pytest (>=6)", "pytest-checkdocs (>=2.4)", "flake8 (<5)", "pytest-co
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7.1"
-content-hash = "20ce24097fc07a92e0c5b07ad125695ea9b03294e68d4cc7a1c72550a45fa086"
+content-hash = "0fa5bba6744afdadfb6496ed9d71dc65b54a3a4bc0d897a4c55cdfeee3649fd9"
 
 [metadata.files]
 aiodns = []

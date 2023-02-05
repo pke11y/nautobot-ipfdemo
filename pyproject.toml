@@ -10,7 +10,7 @@ nautobot = "1.5.8"
 nautobot-capacity-metrics = "^1.1.0"
 nautobot-ssot-ipfabric = "^2"
 #nautobot-chatops-ipfabric = "^3.0"
-nautobot-chatops-ipfabric = { git="https://github.com/nautobot/nautobot-plugin-chatops-ipfabric.git", branch="api-client" }
+nautobot-chatops-ipfabric = "3.0.1"
 nautobot-ipfdemo-plugin = {path = "plugins/ipfdemo_plugin", develop = true}
 # NOTE: There is a bug in Markdown v3.3.5 that crashes Poetry
 Markdown = "^3.3.6"
